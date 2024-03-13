@@ -3,10 +3,7 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
-    // guessing_game();
-
-    let x = plus_one(5);
-    println!("{x}");
+    control_flow();
 }
 
 fn guessing_game() {
@@ -43,4 +40,15 @@ fn guessing_game() {
 
 fn plus_one(x: i32) -> i32 {
     x + 1
+}
+
+fn control_flow() {
+    let mut counter = 0;
+    let number = 'get_counter: loop {
+        if counter == 10 {
+            break 'get_counter counter;
+        }
+        counter += 1;
+    };
+    println!("number is {number}.");
 }
