@@ -3,7 +3,10 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
-    guessing_game();
+    // guessing_game();
+
+    let x = plus_one(5);
+    println!("{x}");
 }
 
 fn guessing_game() {
@@ -36,4 +39,8 @@ fn guessing_game() {
             }
         }
     }
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
 }
