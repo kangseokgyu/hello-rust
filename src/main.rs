@@ -58,7 +58,7 @@ fn control_flow() {
     }
     println!("counter is {counter}.");
 
-    for i in (1..10) {
+    for i in 1..10 {
         println!("{i}");
     }
 
