@@ -3,7 +3,7 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
-    reference_borrowing();
+    slice_type();
 }
 
 fn guessing_game() {
@@ -85,4 +85,23 @@ fn reference_borrowing() {
         &s
     };
     */
+}
+
+fn slice_type() {
+    let s = String::from("hello world!");
+    let first = first_word(&s);
+
+    println!("{first}");
+}
+
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &e) in bytes.iter().enumerate() {
+        if e == b' ' {
+            return &s[..i];
+        }
+    }
+
+    &s[..]
 }
