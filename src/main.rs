@@ -3,7 +3,13 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
-    rectangle();
+    let ipv4 = IP::V4(0x7f000001);
+    let ipv6 = IP::V6("::1".to_string());
+
+    ipv4.print();
+    ipv6.print();
+
+    option();
 }
 
 fn guessing_game() {
@@ -142,4 +148,43 @@ fn rectangle() {
     println!("rect1 size: {}", rect1.area());
     println!("square1 size: {}", square1.area());
     println!("Can rect1 hold square1: {}", rect1.can_hold(&square1));
+}
+
+#[derive(Debug)]
+enum IP {
+    V4(u32),
+    V6(String),
+}
+
+impl IP {
+    fn print(&self) {
+        match self {
+            V4 => {
+                println!("{:?}", self);
+            }
+            V6 => {
+                println!("{:?}", self);
+            }
+        }
+    }
+}
+
+fn option() {
+    let some_int = Some(3);
+    let some_string = Some(String::from("value"));
+    let none_string: Option<String> = None;
+
+    let some_ipv4 = IP::V4(0);
+    let some_ipv6 = IP::V6("0".to_string());
+
+    let plus_one: Option<i32> = {
+        match some_int {
+            None => None,
+            Some(i) => Some(i + 1),
+        }
+    };
+
+    if let Some(i) = plus_one {
+        println!("{}", i);
+    }
 }
