@@ -1,5 +1,5 @@
-mod collector;
+mod error_handling;
 
 fn main() {
-    collector::collector();
+    error_handling::error_handling();
 }
